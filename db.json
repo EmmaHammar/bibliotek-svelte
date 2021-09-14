@@ -1,0 +1,88 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "title": "Eld & Lågor",
+      "artist": "Viktor Leksell",
+      "isRented": false,
+      "img": ""
+    },
+    {
+      "id": 2,
+      "title": "Det kommer bli bra",
+      "artist": "Laleh",
+      "isRented": false,
+      "img": ""
+    },
+    {
+      "id": 3,
+      "title": "Happy Birthday",
+      "artist": "Stevie Wonder",
+      "isRented": false,
+      "img": ""
+    },
+    {
+      "id": 4,
+      "title": "Instruktionsboken",
+      "artist": "Miss Li",
+      "isRented": false,
+      "img": ""
+    },
+    {
+      "id": 5,
+      "title": "Stay",
+      "artist": "The Kid LAROI, Justin Bieber",
+      "isRented": false,
+      "img": ""
+    },
+    {
+      "id": 6,
+      "title": "Varsomhelst/ Närsomhelst",
+      "artist": "Veronica Maggio",
+      "isRented": false,
+      "img": ""
+    },
+    {
+      "title": "tänd",
+      "artist": "eva dahlgren",
+      "isRented": false,
+      "img": "",
+      "id": 7
+    },
+    {
+      "title": "I do",
+      "artist": "arvingarna",
+      "isRented": false,
+      "img": "",
+      "id": 8
+    },
+    {
+      "title": "gbg",
+      "artist": "håkan",
+      "isRented": false,
+      "img": "",
+      "id": 9
+    },
+    {
+      "title": "trea",
+      "artist": "e",
+      "isRented": true,
+      "img": "",
+      "id": 10
+    },
+    {
+      "title": "tv",
+      "artist": "e",
+      "isRented": false,
+      "img": "",
+      "id": 11
+    },
+    {
+      "title": "1",
+      "artist": "e",
+      "isRented": false,
+      "img": "",
+      "id": 12
+    }
+  ]
+}
