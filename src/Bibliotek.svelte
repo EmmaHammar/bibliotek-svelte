@@ -1,20 +1,9 @@
 <script>
-import { onMount } from "svelte";
 import Song from './Song.svelte';
 
-export let songs = [];
+export let songs = []; //props fr app //ska man sätta den till tom först, innan den hunnit få data från props?
+$: console.log("songs i Bibliotek:", songs);
 
-    onMount(() => {
-        setTimeout(() => {
-            fetch('http://localhost:3000/songs')
-            .then(res => res.json()) 
-            .then(data => {
-                console.log("data from fetch", data);
-                songs = data;
-            })
-        }, 1000)
-        
-    })
 </script>
 
 <style>
@@ -25,9 +14,10 @@ export let songs = [];
     {#each songs as song}
         <Song {song} />
     {:else}
-        <div>Hämtar sånger</div>
+        <div>Hämtar sånger!</div>
     {/each}
 
 </div>
 
 <!-- fetchar data + kör en for each som printar <Song />, importerar Song-->
+<!-- Denna komponent printar ut en sånglista och kallar på Song som fyller varje kort med info -->

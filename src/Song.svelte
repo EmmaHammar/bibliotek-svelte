@@ -1,7 +1,6 @@
 <script>
 import { onMount } from "svelte";
 
-
     export let song = {};
     export let isRented = false;
     export let newRentStatus = "";
@@ -11,41 +10,41 @@ import { onMount } from "svelte";
     });
 
     const handleClick = (evt) => {
-        console.log("id", Number(evt.target.id));
-
-        console.log("song.id", song.id);
-
-        let updateSong = {
-                "id" : song.id,
-                "title": "title",
-                "artist": "artist",
-                "isRented": newRentStatus,
-                "img": ""
-        }
+        // console.log("klickat id", Number(evt.target.id));
+        // console.log("song.id", song.id);
+        // console.log("klickad klass", evt.target.className;
 
         if (evt.target.className === "false" && song.id === Number(evt.target.id)) {
+            // console.log("sätt till true");
             newRentStatus = true;
-
-            console.log("sätt till true");
         } else {
-            console.log("sätt till falskt");
+            // console.log("sätt till falskt");
             newRentStatus = false;
         }
 
-        //sparas i db:
-        fetch('http://localhost:3000/songs', {
-            method: "post",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(updateSong)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log("data from post updateSong", data);
-        })
-        // .catch(err => console.log("Error i post:", err));
+        let updateSong = {
+            "id" : song.id,
+            "title": "title",
+            "artist": "artist",
+            "isRented": newRentStatus,
+            "img": ""
+        }
 
+        console.log("updateSong:", updateSong);
+        //uppdatera db
+        // fetch('http://localhost:3000/songs', {
+        //     method: "post",
+        //     headers: {
+        //         "Content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(updateSong)
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log("data from post updateSong", data);
+        // })
+        // // .catch(err => console.log("Error i post:", err));
+        
     };
 
         
@@ -79,4 +78,4 @@ import { onMount } from "svelte";
     
 </div>
 
-<!--  -->
+<!-- child till Bibliotek, fyller kort med info om artist och titel (samt checkbox??)-->
