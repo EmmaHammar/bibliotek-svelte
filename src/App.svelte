@@ -16,21 +16,33 @@
            
             })
         }, 1000)
-        
-    })
-
+    });
 	// $: console.log("songs i App", songs);
 
 	const setSong = (newSong) => {
-		// console.log("cb i App som lägger till ny song till songs", newSong);
-		// console.log("songs innan push", songs);
-		songs.push(newSong);
-		// console.log("songs efter push", songs);
 
-		//fylla songs med pushad songs men får man ändra statet så direkt? Varför fylls det inte automatiskt när songs är pushad med newSong?
-		songs = songs;
+		fetch('http://localhost:3000/songs', {
+            method: "post",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(newSong)
+        })
+        .then(res => res.json())
+        .then(data => {
+            // console.log("newSong from post, newSong har fått id", data);
+            //uppdaterar songs-statet med newSong så även newSong får med sig id o printas ut:
+            songs.push(newSong);
+			//fylla songs med pushad songs men får man ändra statet så direkt? Varför fylls det inte automatiskt när songs är pushad med newSong?
+			songs = songs;
+        })
+        .catch(err => console.log("Error i post:", err))
+
+		
 	}
 	$: console.log("songs i App utanför push-funktion", songs);
+
+
 
 </script>
 

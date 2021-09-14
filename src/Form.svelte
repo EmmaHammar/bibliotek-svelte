@@ -6,10 +6,8 @@
 
     export let songs = []; //props fr app
     export let newSong = {};
-
     export let setSong; //props fr app
  
-
     const onSubmit = (evt) => {
         // console.log("title", evt.target.title.value);
         // console.log("artist", evt.target.artist.value);
@@ -22,25 +20,10 @@
         };
         // console.log("hur är newSong", newSong);
 
-        //sparas i db:
-        fetch('http://localhost:3000/songs', {
-            method: "post",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(newSong)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log("newSong from post, newSong har fått id", data);
+        //sparas i db + uppdat statet g cb App:
+        setSong(newSong);
 
-            //cb App som uppdaterar songs-statet med newSong så även newSong printas ut:
-            setSong(data)
-        })
-        .catch(err => console.log("Error i post:", err))
-
-
-    }
+    };
 
     //denna körs varje gång inputfältet förändras - varför? o inte varje gång songs eller newSong har förändrats?
     afterUpdate(() => {

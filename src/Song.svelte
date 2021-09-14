@@ -14,23 +14,45 @@ import { onMount } from "svelte";
         // console.log("song.id", song.id);
         // console.log("klickad klass", evt.target.className;
 
-        if (evt.target.className === "false" && song.id === Number(evt.target.id)) {
+        //om klickad klass är falskt och klick sångid är samma som songid för knappen:
+        if (evt.target.className === "false" && Number(evt.target.id) === song.id ) {
             // console.log("sätt till true");
             newRentStatus = true;
-        } else {
+        } 
+        if (evt.target.className === "true" && Number(evt.target.id) === song.id ){
             // console.log("sätt till falskt");
             newRentStatus = false;
         }
 
         let updateSong = {
             "id" : song.id,
-            "title": "title",
-            "artist": "artist",
+            "title": song.title,
+            "artist": song.title,
             "isRented": newRentStatus,
             "img": ""
         }
 
         console.log("updateSong:", updateSong);
+
+        //uppdatera songs-statet
+        //uppdatera i db
+
+        
+                
+        fetch('http://localhost:3000/songs', {
+            method: "post",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(updateSong)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("updateSong from post, updateSong har fått id", data);
+            //cb App som uppdaterar songs-statet med newSong så även newSong printas ut:
+            // setSong(data)
+        })
+        .catch(err => console.log("Error i post:", err))
         //uppdatera db
         // fetch('http://localhost:3000/songs', {
         //     method: "post",
@@ -47,9 +69,6 @@ import { onMount } from "svelte";
         
     };
 
-        
-
-
 </script>
 
 <style>
@@ -65,13 +84,14 @@ import { onMount } from "svelte";
     <h2>{song.artist} sjunger {song.title}</h2>
 
     <button on:click={handleClick} id={song.id} class={song.isRented}>
-        <!-- {isRented ? "Låna sång" : "Utlånad"} -->
-        {#if isRented === false}
+        {isRented ? "Utlånad" : "Låna sång"}
+
+        <!-- {#if isRented === false}
             Låna sång
-            <!-- sätt till true -->
+            sätt till true
         {:else}
             Utlånad
-        {/if}
+        {/if} -->
         
     </button>
     <p>Visa bild</p>

@@ -43,53 +43,25 @@
       "img": ""
     },
     {
-      "title": "e",
-      "artist": "e",
+      "title": "förlåt",
+      "artist": "Miss li",
       "isRented": false,
       "img": "",
       "id": 7
     },
     {
-      "title": "ee",
-      "artist": "ee",
+      "title": "eee",
+      "artist": "e",
       "isRented": false,
       "img": "",
       "id": 8
     },
     {
-      "title": "eee",
-      "artist": "eee",
+      "title": "var",
+      "artist": "varoli",
       "isRented": false,
       "img": "",
       "id": 9
-    },
-    {
-      "title": "eeee",
-      "artist": "eeee",
-      "isRented": false,
-      "img": "",
-      "id": 10
-    },
-    {
-      "title": "på bussen",
-      "artist": "hjulen",
-      "isRented": false,
-      "img": "",
-      "id": 11
-    },
-    {
-      "title": "",
-      "artist": "e",
-      "isRented": false,
-      "img": "",
-      "id": 12
-    },
-    {
-      "title": "främling",
-      "artist": "carola",
-      "isRented": false,
-      "img": "",
-      "id": 13
     }
   ]
 }
