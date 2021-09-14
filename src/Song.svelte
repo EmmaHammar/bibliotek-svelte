@@ -1,13 +1,9 @@
 <script>
-import { onMount } from "svelte";
+    import { onMount } from "svelte";
 
     export let song = {};
-    export let isRented = false;
     export let newRentStatus = "";
-
-    onMount(() => {
-        isRented = song.isRented;
-    });
+    export let setUpdateSong; //props fr app
 
     const handleClick = (evt) => {
         // console.log("klickat id", Number(evt.target.id));
@@ -21,7 +17,7 @@ import { onMount } from "svelte";
         } 
         if (evt.target.className === "true" && Number(evt.target.id) === song.id ){
             // console.log("sätt till falskt");
-            newRentStatus = false;
+            newRentStatus = false; 
         }
 
         let updateSong = {
@@ -31,42 +27,11 @@ import { onMount } from "svelte";
             "isRented": newRentStatus,
             "img": ""
         }
+        // console.log("updateSong:", updateSong);
 
-        console.log("updateSong:", updateSong);
-
-        //uppdatera songs-statet
-        //uppdatera i db
-
-        
-                
-        fetch('http://localhost:3000/songs', {
-            method: "post",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(updateSong)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log("updateSong from post, updateSong har fått id", data);
-            //cb App som uppdaterar songs-statet med newSong så även newSong printas ut:
-            // setSong(data)
-        })
-        .catch(err => console.log("Error i post:", err))
-        //uppdatera db
-        // fetch('http://localhost:3000/songs', {
-        //     method: "post",
-        //     headers: {
-        //         "Content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(updateSong)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log("data from post updateSong", data);
-        // })
-        // // .catch(err => console.log("Error i post:", err));
-        
+        //uppdatera songs-statet + i db -> cb i App:
+        setUpdateSong(updateSong);
+    
     };
 
 </script>
@@ -84,15 +49,7 @@ import { onMount } from "svelte";
     <h2>{song.artist} sjunger {song.title}</h2>
 
     <button on:click={handleClick} id={song.id} class={song.isRented}>
-        {isRented ? "Utlånad" : "Låna sång"}
-
-        <!-- {#if isRented === false}
-            Låna sång
-            sätt till true
-        {:else}
-            Utlånad
-        {/if} -->
-        
+        {song.isRented ? "Utlånad" : "Låna sång"} 
     </button>
     <p>Visa bild</p>
     

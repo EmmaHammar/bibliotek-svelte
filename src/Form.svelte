@@ -18,11 +18,10 @@
             "isRented": false,
             "img": ""
         };
-        // console.log("hur är newSong", newSong);
+        console.log("hur är newSong", newSong);
 
         //sparas i db + uppdat statet g cb App:
         setSong(newSong);
-
     };
 
     //denna körs varje gång inputfältet förändras - varför? o inte varje gång songs eller newSong har förändrats?

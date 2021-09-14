@@ -1,8 +1,10 @@
 <script>
-import Song from './Song.svelte';
+    import Song from './Song.svelte';
 
-export let songs = []; //props fr app //ska man sätta den till tom först, innan den hunnit få data från props?
-$: console.log("songs i Bibliotek:", songs);
+    export let songs = []; //props fr app //ska man sätta den till tom först, innan den hunnit få data från props?
+    $: console.log("songs i Bibliotek:", songs);
+
+    export let setUpdateSong; //props fr app
 
 </script>
 
@@ -12,7 +14,7 @@ $: console.log("songs i Bibliotek:", songs);
 
 <div>
     {#each songs as song}
-        <Song {song} />
+        <Song {song} {setUpdateSong} />
     {:else}
         <div>Hämtar sånger!</div>
     {/each}

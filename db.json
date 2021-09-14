@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Eld & Lågor",
       "artist": "Viktor Leksell",
-      "isRented": false,
+      "isRented": true,
       "img": ""
     },
     {
@@ -41,27 +41,6 @@
       "artist": "Veronica Maggio",
       "isRented": false,
       "img": ""
-    },
-    {
-      "title": "förlåt",
-      "artist": "Miss li",
-      "isRented": false,
-      "img": "",
-      "id": 7
-    },
-    {
-      "title": "eee",
-      "artist": "e",
-      "isRented": false,
-      "img": "",
-      "id": 8
-    },
-    {
-      "title": "var",
-      "artist": "varoli",
-      "isRented": false,
-      "img": "",
-      "id": 9
     }
   ]
 }
