@@ -2,17 +2,21 @@
     import Song from './Song.svelte';
 
     export let songs = []; //props fr app //ska man sätta den till tom först, innan den hunnit få data från props?
-    $: console.log("songs i Bibliotek:", songs);
+    // $: console.log("songs i Bibliotek:", songs);
 
     export let setUpdateSong; //props fr app
 
 </script>
 
 <style>
+    #song-card-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
 </style>
 
-<div>
+<div id="song-card-wrapper">
     {#each songs as song}
         <Song {song} {setUpdateSong} />
     {:else}

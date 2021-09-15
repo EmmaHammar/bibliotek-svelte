@@ -6,17 +6,12 @@
     export let setUpdateSong; //props fr app
 
     const handleClick = (evt) => {
-        // console.log("klickat id", Number(evt.target.id));
-        // console.log("song.id", song.id);
-        // console.log("klickad klass", evt.target.className;
 
         //om klickad klass är falskt och klick sångid är samma som songid för knappen:
         if (evt.target.className === "false" && Number(evt.target.id) === song.id ) {
-            // console.log("sätt till true");
             newRentStatus = true;
         } 
         if (evt.target.className === "true" && Number(evt.target.id) === song.id ){
-            // console.log("sätt till falskt");
             newRentStatus = false; 
         }
 
@@ -27,7 +22,6 @@
             "isRented": newRentStatus,
             "img": ""
         }
-        // console.log("updateSong:", updateSong);
 
         //uppdatera songs-statet + i db -> cb i App:
         setUpdateSong(updateSong);
@@ -40,18 +34,32 @@
         margin: 10px;
         padding: 10px;
         max-width: 400px;
-        border: 1px solid gold;
+        border: 2px solid #E27D60;
+        border-radius: 5px;
+    }
+
+    img {
+        max-width: 60%;
+    }
+
+    button {
+        border: 3px solid #E27D60;
+        border-radius: 5px;
+        color: #E27D60;
+    }
+
+    button:hover {
+        background: #E27D60;
+        color: #fff;
     }
 </style>
 
 <div>
     <h2>{song.artist} sjunger {song.title}</h2>
-
+    <img src='{song.img}' alt="Visar bild på {song.artist}s {song.title}"><br><br>
     <button on:click={handleClick} id={song.id} class={song.isRented}>
         {song.isRented ? "Utlånad" : "Låna sång"} 
     </button>
-    <p>Visa bild</p>
-    
 </div>
 
 <!-- child till Bibliotek, fyller kort med info om artist och titel (samt checkbox??)-->
