@@ -42,30 +42,41 @@
 
 	const setUpdateSong = (updateSong) => {
 		// console.log("update song från Song:", updateSong);
-
+		// hämta, ändra spara
 		for (let song in songs) {
 			// console.log("songs[song]", songs[song].id);
 			if (updateSong.id === songs[song].id) {
 				// console.log("uppdatera rented-status i songs:", songs[song].id);
 				songs[song].isRented = updateSong.isRented;
-				songs = songs;
+				songs = songs; //const newSongs -> songs = newSongs
 			} 
 		}
+		// console.log("updateSong",updateSong);
 
-		//uppdatera i db där jag sparar antingen nya song eller hela songs i db - hur?
-		// fetch('http://localhost:3000/songs', {
-        //     method: "post",
-        //     headers: {
-        //         "Content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(songs)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log("newSong from post, updateSong har fått id", data);
+		let updateInDb = {
+			id: updateSong.id,
+            title: updateSong.title,
+            artist: updateSong.artist,            
+			isRented: updateSong.isRented,
+			img: ""
+		};
+
+		console.log("updateInDb", updateInDb);
+
+		//uppdatera i db vid isRented-status förändring - leta på id -> uppdatera isRented
+		fetch(`http://localhost:3000/songs/${updateSong.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(updateInDb)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("PUT fetch trying to update isRentedStatus", data);
            
-        // })
-        // .catch(err => console.log("Error i post updateSong:", err))
+        })
+        .catch(err => console.log("Error i post updateSong:", err))
 		
 	}
 	$: console.log("songs i App utanför uppdateraSongs-funktion", songs);
@@ -97,7 +108,7 @@
 
 
 <main>
-	<h1>Barnbibliotek</h1>
+	<h1>Barnens Favoritlåtar</h1>
 	<Form {songs} {setSong}/>
 	<Bibliotek {songs} {setUpdateSong}/> 
 	

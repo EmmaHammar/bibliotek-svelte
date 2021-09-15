@@ -23,7 +23,7 @@
         let updateSong = {
             "id" : song.id,
             "title": song.title,
-            "artist": song.title,
+            "artist": song.artist,
             "isRented": newRentStatus,
             "img": ""
         }
@@ -31,7 +31,6 @@
 
         //uppdatera songs-statet + i db -> cb i App:
         setUpdateSong(updateSong);
-    
     };
 
 </script>

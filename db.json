@@ -2,17 +2,11 @@
   "songs": [
     {
       "id": 1,
-      "title": "Eld & Lågor",
-      "artist": "Viktor Leksell",
-      "isRented": true,
-      "img": ""
+      "isRented": false
     },
     {
       "id": 2,
-      "title": "Det kommer bli bra",
-      "artist": "Laleh",
-      "isRented": false,
-      "img": ""
+      "isRented": true
     },
     {
       "id": 3,
@@ -25,7 +19,7 @@
       "id": 4,
       "title": "Instruktionsboken",
       "artist": "Miss Li",
-      "isRented": false,
+      "isRented": true,
       "img": ""
     },
     {
@@ -41,6 +35,48 @@
       "artist": "Veronica Maggio",
       "isRented": false,
       "img": ""
+    },
+    {
+      "title": "sommarvisa",
+      "artist": "Idas",
+      "isRented": false,
+      "img": "",
+      "id": 7
+    },
+    {
+      "title": "på bussen",
+      "artist": "hjulen",
+      "isRented": false,
+      "img": "",
+      "id": 8
+    },
+    {
+      "title": "satt i granen",
+      "artist": "ekorren",
+      "isRented": false,
+      "img": "",
+      "id": 9
+    },
+    {
+      "title": "vita lamm",
+      "artist": "bä bä",
+      "isRented": false,
+      "img": "",
+      "id": 10
+    },
+    {
+      "title": "pippi",
+      "artist": "här kommer",
+      "isRented": false,
+      "img": "",
+      "id": 11
+    },
+    {
+      "title": "ett äpple",
+      "artist": "vill du ha ",
+      "isRented": false,
+      "img": "",
+      "id": 12
     }
   ]
 }
